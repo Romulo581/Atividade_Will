@@ -1,0 +1,15 @@
+h1{
+    color:blue;
+    text-align: center;
+    background-color: aliceblue;
+
+}
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px; /* Ajuste conforme necessário */
+    background: conic-gradient(from 45deg, red, yellow, lime,  aqua, blue, magenta, red);
+    border-radius: 100%;
+    color: aliceblue;
+    font-family: 10px;
+}
