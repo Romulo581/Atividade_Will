@@ -125,4 +125,7 @@ nav {
     background: var(--cor-cards-);
     height: 25px;
     width: 25px;
+    cursor: pointer;
+    border:none;
+    margin:-8px;
 }
