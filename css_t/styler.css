@@ -1,57 +1,91 @@
-html,body{
+:root {
+    --cor-body-: #f39494;
+    --cor-navbar-: #f7bc3f;
+    --cor-cards-: #9ff3e1;
+    /* cor para texto*/
+    --cor-texto-: #000000;
+    --cor-texto-secundaria-: #ffffff;
+}
+
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-}
-body{
-    background-color: bisque;
+    background: var(--cor-body-);
     min-height: 100vh;
     min-width: 100vh;
 }
-.content_cards{
+
+body {
+
+}
+header{
+    margin: 0;
+}
+nav {
+    background: var(--cor-navbar-);
+    margin: 0;
+    height: 50vh;
+}
+
+.content_cards {
     display: flex;
     justify-content: center;
 }
-.cards1,.cards2,.cards3,.cards4,.cards5{
+
+.cards1,
+.cards2,
+.cards3,
+.cards4,
+.cards5 {
     width: 200px;
     height: 150px;
-    background-color: rgb(63, 88, 233);
+    background: var(--cor-cards-);
     margin: 20px 0 0 20px;
 }
-.cards1{
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+.cards1 {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(-100%);
-    transition: transform 1s ease, opacity 1s ease; 
+    transition: transform 1s ease, opacity 1s ease;
 }
-.cards1.show1{
+
+.cards1.show1 {
     opacity: 1;
     transform: translateY(0);
 }
-.cards2{
-     opacity: 0;
-     transform: translateX(-100%);
-     transition: transform 1s ease, opacity 1s ease;
+
+.cards2 {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 1s ease, opacity 1s ease;
 }
-.cards2.show2{
+
+.cards2.show2 {
     opacity: 1;
     transform: translateX(0);
 }
-.cards3{
+
+.cards3 {
     opacity: 0;
     transform: translateY(100%);
-    transition: transform 1s ease, opacity 1s ease;   
+    transition: transform 1s ease, opacity 1s ease;
 }
-.cards3.show3{
+
+.cards3.show3 {
     opacity: 1;
     transform: translateY(0);
 }
-.cards4{
+
+.cards4 {
     opacity: 0;
     transform: translateX(100%);
-    transition: transform 1s ease, opacity 1s ease;   
+    transition: transform 1s ease, opacity 1s ease;
 }
-.cards4.show4{
+
+.cards4.show4 {
     opacity: 1;
     transform: translateX(0);
 }
