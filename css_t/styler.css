@@ -12,26 +12,38 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+body {
     background: var(--cor-body-);
     min-height: 100vh;
-    min-width: 100vh;
-}
-
-body {
+    min-width: 100%;
 
 }
 header{
     margin: 0;
+    height: 20vh;
+    background: var(--cor-body-);
 }
 nav {
     background: var(--cor-navbar-);
     margin: 0;
-    height: 50vh;
+    height: 10vh; /* Ajuste conforme necessário */
+    display: flex;
+    justify-content: center; /* Centraliza os itens no menu */
+    align-items: center; /* Centraliza os itens verticalmente */
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .content_cards {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .cards1,
@@ -88,4 +100,29 @@ nav {
 .cards4.show4 {
     opacity: 1;
     transform: translateX(0);
+}
+/*barra de navegação do filtro*/
+.nav_anos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.filt_barra_ano1,
+.filt_barra_ano2,
+.filt_barra_ano3,
+.filt_barra_ano4,
+.filt_barra_ano5{
+    height: 2px;
+    width: 100px;
+    background: var(--cor-texto-);
+}
+.cicl_ano1,
+.cicl_ano2,
+.cicl_ano3,
+.cicl_ano4{
+    border-radius: 100%;
+    background: var(--cor-cards-);
+    height: 25px;
+    width: 25px;
 }
