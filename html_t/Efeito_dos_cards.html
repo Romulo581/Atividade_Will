@@ -5,58 +5,58 @@
   <title>Cards Animados</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    :root {
-  --cor-cards: #d4d4d4;
-  --cor-bg: #f5e8dc;
-  --cor-texto: #333;
+:root {
+  --cor-cards: #d4d4d4; /* Definindo a cor de fundo dos cards */
+  --cor-bg: #f5e8dc; /* Cor de fundo da página */
+  --cor-texto: #333; /* Cor do texto dentro dos cards */
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--cor-bg);
-  font-family: sans-serif;
+  margin: 0; /* Remove qualquer margem do body */
+  padding: 0; /* Remove qualquer padding do body */
+  background: var(--cor-bg); /* Atribui a cor de fundo da página definida acima */
+  font-family: sans-serif; /* Define a fonte da página */
 }
 
 .content_cards {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px;
-  height: 200px; /* altura dos cards na linha */
-  margin: 50px auto;
-  gap: 10px; /* espaçamento de 10px entre os cards */
-  position: relative;
+  display: flex; /* Usa flexbox para alinhar os elementos filhos (os cards) */
+  justify-content: flex-start; /* Alinha os cards no início (à esquerda) */
+  align-items: center; /* Alinha verticalmente os cards no centro */
+  width: 100%; /* A largura total do container é 100% da largura da tela */
+  max-width: 1000px; /* Limita a largura máxima dos cards para 1000px */
+  height: 200px; /* Altura dos cards na linha */
+  margin: 50px auto; /* Centraliza o container na tela com uma margem de 50px no topo e auto nas laterais */
+  gap: 10px; /* Define o espaçamento de 10px entre os cards */
+  position: relative; /* Define a posição relativa para os cards se moverem corretamente */
 }
 
 .card-wrapper {
-  position: relative;
-  width: 180px;
-  height: 120px;
-  overflow: hidden; /* Esconde o card enquanto ele entra */
+  position: relative; /* A posição dos cards dentro de `card-wrapper` é relativa, permitindo o movimento com transform */
+  width: 180px; /* Largura de cada card */
+  height: 120px; /* Altura de cada card */
+  overflow: hidden; /* Esconde os cards enquanto eles entram de fora da tela */
 }
 
 .card {
-  width: 100%;
-  height: 100%;
-  background: var(--cor-cards);
-  color: var(--cor-texto);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
+  width: 100%; /* O card ocupará toda a largura do seu container */
+  height: 100%; /* O card ocupará toda a altura do seu container */
+  background: var(--cor-cards); /* Cor de fundo do card */
+  color: var(--cor-texto); /* Cor do texto dentro do card */
+  display: flex; /* Flexbox para centralizar o conteúdo do card */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  border-radius: 8px; /* Bordas arredondadas para o card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra ao redor do card */
+  font-weight: bold; /* Define o texto dos cards em negrito */
 
-  opacity: 0;
-  transform: translate(0, 0);
-  transition: transform 1s ease, opacity 1s ease;
+  opacity: 0; /* Inicialmente os cards são invisíveis */
+  transform: translate(0, 0); /* Inicialmente, os cards estão na posição final */
+  transition: transform 1s ease, opacity 1s ease; /* Define que transformações (como o movimento) e opacidade terão uma animação de 1 segundo */
 }
 
 .card.show {
-  opacity: 1;
-  transform: translate(0, 0); /* Posição final após animação */
+  opacity: 1; /* Quando a classe `.show` for adicionada, o card se tornará visível */
+  transform: translate(0, 0); /* A transformação leva o card ao seu centro (posição final) */
 }
 
   </style>
@@ -80,53 +80,54 @@ body {
     </div>
   </div>
   
-  <script>window.onload = function () {
-    const cards = document.querySelectorAll(".card");
-    const directions = ["top", "bottom", "left", "right"];
-    const offset = 500; // Distância para animação de entrada
+  <script>
+  window.onload = function () {
+    const cards = document.querySelectorAll(".card"); // Seleciona todos os elementos com a classe "card"
+    const directions = ["top", "bottom", "left", "right"]; // Define as direções de entrada aleatórias
+    const offset = 500; // Distância para o efeito de entrada (quanto mais alto, mais longe o card começará)
   
-    cards.forEach((card, index) => {
-      // Tamanho do card e seu posicionamento no centro
-      const cardWidth = card.offsetWidth;
-      const cardHeight = card.offsetHeight;
+    cards.forEach((card, index) => { // Para cada card, vamos aplicar uma animação
+      const cardWidth = card.offsetWidth; // Pegamos a largura do card
+      const cardHeight = card.offsetHeight; // Pegamos a altura do card
   
-      // Posições iniciais aleatórias
+      // Escolhe uma direção aleatória para a animação de entrada
       const dir = directions[Math.floor(Math.random() * directions.length)];
-      let offsetX = 0;
-      let offsetY = 0;
   
-      // Definir direção e posicionamento inicial com base na direção aleatória
+      let offsetX = 0; // Inicializa o deslocamento horizontal (left-right)
+      let offsetY = 0; // Inicializa o deslocamento vertical (top-bottom)
+  
+      // Com base na direção, o card vai iniciar fora da tela
       switch (dir) {
         case "top":
-          offsetY = -offset;
+          offsetY = -offset; // Se a direção for "top", o card começa fora da tela no topo
           break;
         case "bottom":
-          offsetY = offset;
+          offsetY = offset; // Se a direção for "bottom", o card começa fora da tela embaixo
           break;
         case "left":
-          offsetX = -offset;
+          offsetX = -offset; // Se a direção for "left", o card começa fora da tela à esquerda
           break;
         case "right":
-          offsetX = offset;
+          offsetX = offset; // Se a direção for "right", o card começa fora da tela à direita
           break;
       }
   
-      // Aplica transformação inicial (fora da tela, com base na direção)
-      card.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      // Aplica o movimento inicial do card (fora da tela)
+      card.style.transform = `translate(${offsetX}px, ${offsetY}px)`; // Coloca o card fora da tela, conforme a direção
   
-      // Inicia animação após um pequeno delay para cada card
+      // Define um tempo de atraso para cada card, para que a animação não ocorra de uma vez só
       setTimeout(() => {
-        card.classList.add("show");
-      }, 200 + index * 200);
+        card.classList.add("show"); // Após o delay, adiciona a classe `.show` para ativar a animação
+      }, 200 + index * 200); // Adiciona um pequeno delay para cada card baseado no seu índice (para criar um efeito de sequência)
   
-      // Depois de um tempo, a animação volta para o centro da div
+      // Após o tempo da animação, o card se move para o centro
       setTimeout(() => {
-        card.style.transition = "transform 0.5s ease";
-        card.style.transform = `translate(0, 0)`; // Move para o centro
-      }, 1000 + index * 203); // Ajuste para o tempo de animação
-  
+        card.style.transition = "transform 0.5s ease"; // Define que a transição do movimento será suave
+        card.style.transform = `translate(0, 0)`; // Faz o card se mover para o centro da sua `card-wrapper`
+      }, 1000 + index * 200); // O segundo timeout ajusta o tempo após a animação para centralizar o card
     });
   };
+  
   </script>
 </body>
 </html>
