@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa | Bem-estar e Relaxamento Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        :root {
+            --verde-musgo-escuro: #2E4C40;
+            --verde-claro: #A3B9A0;
+            --branco-suave: #F9F7F3;
+            --dourado: #CBAE88;
+            --texto: #333333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto);
+            background-color: var(--branco-suave);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .header-bg {
+            background-color: var(--verde-musgo-escuro);
+        }
+        
+        .text-dourado {
+            color: var(--dourado);
+        }
+        
+        .bg-dourado {
+            background-color: var(--dourado);
+        }
+        
+        .border-dourado {
+            border-color: var(--dourado);
+        }
+        
+        .bg-verde-claro {
+            background-color: var(--verde-claro);
+        }
+        
+        .bg-verde-escuro {
+            background-color: var(--verde-musgo-escuro);
+        }
+        
+        .hover-dourado:hover {
+            color: var(--dourado);
+        }
+        
+        .hover-bg-dourado:hover {
+            background-color: var(--dourado);
+        }
+        
+        .hover-bg-verde-claro:hover {
+            background-color: var(--verde-claro);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--verde-musgo-escuro);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: var(--dourado);
+            transform: scale(1.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--dourado);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .therapist-card {
+            transition: all 0.3s ease;
+        }
+        
+        .therapist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .therapist-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 3px solid var(--dourado);
+        }
+        
+        .swiper-pagination-bullet-active {
+            background-color: var(--dourado) !important;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--dourado) !important;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            bottom: -10px;
+            left: 25%;
+            background-color: var(--dourado);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-btn text-3xl floating-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header-bg text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-dourado rounded-full flex items-center justify-center mr-4">
+                    <span class="text-2xl font-bold text-verde-escuro">S</span>
+                </div>
+                <h1 class="text-2xl font-bold">Serenity Spa</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link hover-dourado transition duration-300">Home</a>
+                <a href="#products" class="nav-link hover-dourado transition duration-300">Produtos</a>
+                <a href="#about" class="nav-link hover-dourado transition duration-300">Sobre</a>
+                <a href="#therapists" class="nav-link hover-dourado transition duration-300">Terapeutas</a>
+                <a href="#location" class="nav-link hover-dourado transition duration-300">Localização</a>
+            </nav>
+            
+            <button class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section id="home" class="relative">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spa Interior" class="w-full h-[80vh] object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-5xl md:text-6xl font-bold text-white mb-4">Bem-vindo ao Serenity Spa</h2>
+                            <p class="text-xl text-dourado mb-8">O refúgio perfeito para relaxamento e rejuvenescimento</p>
+                            <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                                Agende Agora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Massagem" class="w-full h-[80vh] object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-5xl md:text-6xl font-bold text-white mb-4">Tratamentos Exclusivos</h2>
+                            <p class="text-xl text-dourado mb-8">Descubra nossa seleção premium de terapias</p>
+                            <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                                Conheça Nossos Serviços
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Produtos Spa" class="w-full h-[80vh] object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-5xl md:text-6xl font-bold text-white mb-4">Produtos Naturais</h2>
+                            <p class="text-xl text-dourado mb-8">Leve o bem-estar para sua casa</p>
+                            <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                                Nossa Linha de Produtos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- About Spa -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Sobre o Serenity Spa</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1599458252573-56ae36120de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spa Interior" class="w-full h-auto rounded-lg shadow-xl">
+                </div>
+                <div class="fade-in">
+                    <p class="text-lg mb-6">
+                        Fundado em 2010, o Serenity Spa nasceu da paixão por proporcionar momentos de verdadeiro relaxamento e bem-estar. Localizado no coração do Royal Tulip Brasília Alvorada, nosso espaço foi cuidadosamente projetado para criar uma atmosfera de tranquilidade e harmonia.
+                    </p>
+                    <p class="text-lg mb-6">
+                        Nossa filosofia baseia-se na crença de que o cuidado com o corpo e a mente deve ser uma experiência holística. Por isso, combinamos técnicas ancestrais com os mais recentes avanços em terapias de relaxamento, sempre utilizando produtos naturais e orgânicos de alta qualidade.
+                    </p>
+                    <p class="text-lg">
+                        Cada visita ao Serenity Spa é uma jornada personalizada, onde nossos terapeutas dedicados criam tratamentos sob medida para atender às necessidades individuais de cada cliente, garantindo uma experiência única e transformadora.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="py-20 bg-verde-claro bg-opacity-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nossa História</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold text-dourado mb-4">A Jornada do Serenity</h3>
+                    <p class="text-lg mb-6">
+                        Tudo começou com a visão de nossa fundadora, Dra. Ana Lúcia Mendes, terapeuta holística com mais de 20 anos de experiência. Após viajar pelo mundo estudando diferentes técnicas de relaxamento e bem-estar, ela decidiu criar um espaço que reunisse o melhor de cada cultura.
+                    </p>
+                    <p class="text-lg mb-6">
+                        O primeiro Serenity Spa foi inaugurado em um pequeno espaço em Brasília, rapidamente ganhando reconhecimento pela excelência dos serviços e atenção personalizada. O sucesso foi tão grande que, em apenas cinco anos, expandimos para nossa atual localização no Royal Tulip.
+                    </p>
+                    <p class="text-lg">
+                        Hoje, somos referência em tratamentos de spa na região, premiados internacionalmente por nossa abordagem inovadora e compromisso com a sustentabilidade. Continuamos fiéis à nossa missão original: proporcionar momentos de paz e rejuvenescimento em meio à agitação da vida moderna.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Fundadora" class="w-full max-w-md rounded-lg shadow-xl">
+                        <div class="absolute -bottom-6 -right-6 bg-dourado text-verde-escuro p-4 rounded-lg shadow-lg">
+                            <p class="font-bold">Dra. Ana Lúcia Mendes</p>
+                            <p>Fundadora e Terapeuta Chefe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Brands -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-verde-escuro mb-12">Marcas Parceiras</h2>
+            
+            <div class="swiper-container brands-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+1" alt="Marca 1" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+2" alt="Marca 2" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+3" alt="Marca 3" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+4" alt="Marca 4" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+5" alt="Marca 5" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                    <div class="swiper-slide flex justify-center items-center p-4">
+                        <img src="https://via.placeholder.com/150x80/2E4C40/FFFFFF?text=Brand+6" alt="Marca 6" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Carousel -->
+    <section id="products" class="py-20 bg-verde-claro bg-opacity-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nossos Produtos</h2>
+            
+            <div class="swiper-container products-slider">
+                <div class="swiper-wrapper pb-12">
+                    <!-- Product 1 -->
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white p-6 rounded-lg shadow-md border border-dourado border-opacity-30">
+                            <img src="https://images.unsplash.com/photo-1600956054489-a23507ffbfa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Óleo Essencial" class="w-full h-64 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold text-verde-escuro mb-2">Óleo Essencial Relaxante</h3>
+                            <p class="text-dourado font-semibold mb-3">R$ 89,90</p>
+                            <p class="text-gray-600 mb-4">Blend exclusivo de lavanda, camomila e ylang-ylang para relaxamento profundo.</p>
+                            <button class="w-full bg-verde-escuro hover-bg-dourado text-white py-2 rounded transition duration-300">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white p-6 rounded-lg shadow-md border border-dourado border-opacity-30">
+                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Vela Aromática" class="w-full h-64 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold text-verde-escuro mb-2">Vela Aromática Serenity</h3>
+                            <p class="text-dourado font-semibold mb-3">R$ 65,00</p>
+                            <p class="text-gray-600 mb-4">Vela de soja com essência de jasmim e baunilha, queima limpa por 40 horas.</p>
+                            <button class="w-full bg-verde-escuro hover-bg-dourado text-white py-2 rounded transition duration-300">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white p-6 rounded-lg shadow-md border border-dourado border-opacity-30">
+                            <img src="https://images.unsplash.com/photo-1604176354202-3c32ee2834f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Esfoliante Corporal" class="w-full h-64 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold text-verde-escuro mb-2">Esfoliante Corporal Detox</h3>
+                            <p class="text-dourado font-semibold mb-3">R$ 72,50</p>
+                            <p class="text-gray-600 mb-4">Esfoliante natural com açúcar mascavo, óleo de coco e extrato de chá verde.</p>
+                            <button class="w-full bg-verde-escuro hover-bg-dourado text-white py-2 rounded transition duration-300">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white p-6 rounded-lg shadow-md border border-dourado border-opacity-30">
+                            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Kit Presente" class="w-full h-64 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold text-verde-escuro mb-2">Kit Presente Premium</h3>
+                            <p class="text-dourado font-semibold mb-3">R$ 159,90</p>
+                            <p class="text-gray-600 mb-4">Kit completo com nossos melhores produtos em embalagem presenteável.</p>
+                            <button class="w-full bg-verde-escuro hover-bg-dourado text-white py-2 rounded transition duration-300">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="swiper-slide">
+                        <div class="product-card bg-white p-6 rounded-lg shadow-md border border-dourado border-opacity-30">
+                            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Máscara Facial" class="w-full h-64 object-cover rounded mb-4">
+                            <h3 class="text-xl font-bold text-verde-escuro mb-2">Máscara Facial Rejuvenescedora</h3>
+                            <p class="text-dourado font-semibold mb-3">R$ 98,00</p>
+                            <p class="text-gray-600 mb-4">Máscara com argila branca e extrato de rosa mosqueta para pele revitalizada.</p>
+                            <button class="w-full bg-verde-escuro hover-bg-dourado text-white py-2 rounded transition duration-300">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-verde-escuro hover-bg-dourado text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver Todos os Produtos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Massage Types Carousel -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nossas Massagens</h2>
+            
+            <div class="swiper-container massages-slider">
+                <div class="swiper-wrapper">
+                    <!-- Massage 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-verde-claro bg-opacity-10 p-8 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Massagem Relaxante" class="w-full h-64 object-cover rounded mb-6">
+                            <h3 class="text-2xl font-bold text-verde-escuro mb-3">Massagem Relaxante</h3>
+                            <p class="text-lg mb-4">Técnica suave que alivia tensões musculares e promove profundo relaxamento através de movimentos lentos e pressão moderada.</p>
+                            <ul class="mb-6 space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Alivia estresse e ansiedade</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Melhora a qualidade do sono</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Reduz dores musculares</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-dourado">R$ 180,00</span>
+                                <button class="bg-verde-escuro hover-bg-dourado text-white py-2 px-6 rounded transition duration-300">
+                                    Agendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Massage 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-verde-claro bg-opacity-10 p-8 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Massagem Terapêutica" class="w-full h-64 object-cover rounded mb-6">
+                            <h3 class="text-2xl font-bold text-verde-escuro mb-3">Massagem Terapêutica</h3>
+                            <p class="text-lg mb-4">Técnica focada em alívio de dores crônicas e problemas posturais, combinando diversas abordagens para resultados eficazes.</p>
+                            <ul class="mb-6 space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Alivia dores crônicas</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Melhora a postura</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Aumenta a flexibilidade</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-dourado">R$ 220,00</span>
+                                <button class="bg-verde-escuro hover-bg-dourado text-white py-2 px-6 rounded transition duration-300">
+                                    Agendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Massage 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-verde-claro bg-opacity-10 p-8 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Massagem com Pedras Quentes" class="w-full h-64 object-cover rounded mb-6">
+                            <h3 class="text-2xl font-bold text-verde-escuro mb-3">Massagem com Pedras Quentes</h3>
+                            <p class="text-lg mb-4">Técnica que utiliza pedras vulcânicas aquecidas para relaxamento profundo e alívio de tensões, combinando calor e massagem.</p>
+                            <ul class="mb-6 space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Relaxamento profundo</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Melhora a circulação</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Alivia dores musculares</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-dourado">R$ 250,00</span>
+                                <button class="bg-verde-escuro hover-bg-dourado text-white py-2 px-6 rounded transition duration-300">
+                                    Agendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Massage 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-verde-claro bg-opacity-10 p-8 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Massagem Ayurveda" class="w-full h-64 object-cover rounded mb-6">
+                            <h3 class="text-2xl font-bold text-verde-escuro mb-3">Massagem Ayurveda</h3>
+                            <p class="text-lg mb-4">Técnica milenar indiana que equilibra os doshas (energias vitais) através de movimentos específicos e óleos medicinais.</p>
+                            <ul class="mb-6 space-y-2">
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Equilíbrio energético</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Desintoxicação</li>
+                                <li class="flex items-center"><i class="fas fa-check text-dourado mr-2"></i> Revitalização</li>
+                            </ul>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xl font-bold text-dourado">R$ 280,00</span>
+                                <button class="bg-verde-escuro hover-bg-dourado text-white py-2 px-6 rounded transition duration-300">
+                                    Agendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Persuasive Text -->
+    <section class="py-20 bg-verde-claro bg-opacity-10">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-4xl font-bold text-verde-escuro mb-8">Um Oásis de Paz em Meio ao Caos</h2>
+            <p class="text-xl mb-6">
+                Em um mundo cada vez mais acelerado, cuidar de si mesmo deixou de ser um luxo para se tornar uma necessidade. No Serenity Spa, acreditamos que o verdadeiro bem-estar começa quando você permite a si mesmo momentos de pausa e reconexão.
+            </p>
+            <p class="text-xl mb-6">
+                Nossos tratamentos são mais do que simples massagens - são experiências sensoriais cuidadosamente elaboradas para nutrir corpo, mente e espírito. Cada detalhe, desde a seleção dos óleos essenciais até a ambientação do espaço, foi pensado para transportá-lo a um estado de profunda tranquilidade.
+            </p>
+            <p class="text-xl mb-8">
+                Permita-se essa pausa revitalizante. Você merece esse tempo para recarregar energias e redescobrir seu equilíbrio interior. Agende hoje mesmo sua experiência Serenity e dê o primeiro passo em direção a uma versão mais relaxada e rejuvenescida de si mesmo.
+            </p>
+            <button class="bg-dourado hover:bg-verde-escuro text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                Agendar Minha Experiência
+            </button>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nosso Espaço</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sala de Massagem" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Sala de Massagem</h3>
+                            <p class="text-white">Ambiente climatizado com iluminação suave e aromaterapia personalizada</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Área de Relaxamento" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Área de Relaxamento</h3>
+                            <p class="text-white">Espaço exclusivo para descontração antes e após os tratamentos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Spa Suite" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Spa Suite Premium</h3>
+                            <p class="text-white">Nossa suíte mais exclusiva com banheira de hidromassagem e vista panorâmica</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1582719471385-7ad48b5b0a25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Jardim de Meditação" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Jardim de Meditação</h3>
+                            <p class="text-white">Espaço ao ar livre para práticas de mindfulness e conexão com a natureza</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Sala de Aromaterapia" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Sala de Aromaterapia</h3>
+                            <p class="text-white">Experiência sensorial completa com óleos essenciais selecionados</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image 6 -->
+                <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sala de Tratamentos Faciais" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <div class="text-center p-4">
+                            <h3 class="text-white text-xl font-bold mb-2">Sala de Tratamentos Faciais</h3>
+                            <p class="text-white">Tecnologia e produtos naturais para cuidados com a pele</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="py-20 bg-verde-escuro text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8">Pronto para sua Experiência Serenity?</h2>
+            <p class="text-xl mb-12 max-w-3xl mx-auto">
+                Reserve agora mesmo seu tratamento e dê o primeiro passo em direção ao relaxamento e bem-estar que você merece.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                    Agendar por WhatsApp
+                </button>
+                <button class="bg-transparent hover:bg-dourado border-2 border-dourado text-white hover:text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ligar para o Spa
+                </button>
+                <button class="bg-transparent hover:bg-dourado border-2 border-dourado text-white hover:text-verde-escuro font-bold py-3 px-8 rounded-full transition duration-300">
+                    Ver Horários Disponíveis
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Massage Products Carousel -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Produtos para Massagem</h2>
+            
+            <div class="swiper-container massage-products-slider">
+                <div class="swiper-wrapper">
+                    <!-- Product 1 -->
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Óleo para Massagem" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Óleo Corporal Relaxante</h3>
+                                    <p class="text-white mb-4">Formulado com óleos essenciais de lavanda e camomila para massagens profundamente relaxantes.</p>
+                                    <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-2 px-6 rounded transition duration-300">
+                                        Saiba Mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1599458252573-56ae36120de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pedras para Massagem" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Kit Pedras Vulcânicas</h3>
+                                    <p class="text-white mb-4">Conjunto completo de pedras basálticas para massagem terapêutica em casa.</p>
+                                    <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-2 px-6 rounded transition duration-300">
+                                        Saiba Mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600956054489-a23507ffbfa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Rolo Massageador" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Rolo de Jade</h3>
+                                    <p class="text-white mb-4">Ferramenta de massagem facial em jade natural para drenagem e rejuvenescimento.</p>
+                                    <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-2 px-6 rounded transition duration-300">
+                                        Saiba Mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1604176354202-3c32ee2834f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Escova Corporal" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Escova de Massagem</h3>
+                                    <p class="text-white mb-4">Escova de cerdas naturais para massagem seca e estimulação da circulação.</p>
+                                    <button class="bg-dourado hover:bg-white text-verde-escuro font-bold py-2 px-6 rounded transition duration-300">
+                                        Saiba Mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Therapists Section -->
+    <section id="therapists" class="py-20 bg-verde-claro bg-opacity-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nossos Terapeutas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Therapist 1 -->
+                <div class="therapist-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="flex justify-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Terapeuta 1" class="therapist-img rounded-full">
+                    </div>
+                    <h3 class="text-2xl font-bold text-verde-escuro mb-2">Mariana Silva</h3>
+                    <p class="text-dourado font-semibold mb-4">Especialista em Massagem Terapêutica</p>
+                    <p class="text-gray-600 mb-4">
+                        Com 12 anos de experiência, Mariana é especialista em técnicas de liberação miofascial e massagem desportiva. Formada pela Escola Brasileira de Massoterapia.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fas fa-calendar-alt text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Therapist 2 -->
+                <div class="therapist-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="flex justify-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Terapeuta 2" class="therapist-img rounded-full">
+                    </div>
+                    <h3 class="text-2xl font-bold text-verde-escuro mb-2">Carlos Mendonça</h3>
+                    <p class="text-dourado font-semibold mb-4">Mestre em Ayurveda</p>
+                    <p class="text-gray-600 mb-4">
+                        Carlos estudou na Índia por 5 anos antes de trazer suas técnicas de Ayurveda para o Serenity Spa. Especialista em Abhyanga e Shirodhara.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fas fa-calendar-alt text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Therapist 3 -->
+                <div class="therapist-card bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="flex justify-center mb-6">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Terapeuta 3" class="therapist-img rounded-full">
+                    </div>
+                    <h3 class="text-2xl font-bold text-verde-escuro mb-2">Fernanda Oliveira</h3>
+                    <p class="text-dourado font-semibold mb-4">Terapeuta de Pedras Quentes</p>
+                    <p class="text-gray-600 mb-4">
+                        Fernanda domina a arte da terapia com pedras quentes, combinando técnicas ocidentais e orientais para uma experiência única de relaxamento.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-verde-escuro hover:text-dourado"><i class="fas fa-calendar-alt text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="bg-verde-escuro hover-bg-dourado text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Conheça Toda Nossa Equipe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-verde-escuro mb-16 section-title">Nossa Localização</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-verde-escuro mb-4">Royal Tulip Brasília Alvorada</h3>
+                    <p class="text-lg mb-6">
+                        Estamos localizados no prestigiado Royal Tulip Brasília Alvorada, um dos hotéis mais exclusivos da capital federal. Nosso spa ocupa uma área especialmente projetada para oferecer privacidade e tranquilidade aos nossos clientes.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt text-dourado mr-3 text-xl"></i> SHTN Trecho 1, Conj. 1B, Bloco C - Brasília, DF</p>
+                        <p class="flex items-center"><i class="fas fa-phone-alt text-dourado mr-3 text-xl"></i> (61) 3424-7000</p>
+                        <p class="flex items-center"><i class="fas fa-envelope text-dourado mr-3 text-xl"></i> contato@serenityspa.com.br</p>
+                        <p class="flex items-center"><i class="fas fa-clock text-dourado mr-3 text-xl"></i> Segunda a Sábado: 9h às 20h | Domingo: 10h às 18h</p>
+                    </div>
+                    <button class="bg-dourado hover:bg-verde-escuro text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                        Como Chegar
+                    </button>
+                </div>
+                <div class="h-96 bg-gray-200 rounded-lg overflow-hidden">
+                    <!-- Google Maps Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.324721467001!2d-47.8918229247252!3d-15.7849706848337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3a8d6e9f0d2f%3A0x2e1a5e3a3a3a3a3a!2sRoyal%20Tulip%20Bras%C3%ADlia%20Alvorada!5e0!3m2!1sen!2sbr!4v1620000000000!5m2!1sen!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotel Carousel -->
+    <section class="py-16 bg-verde-claro bg-opacity-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-verde-escuro mb-12">Royal Tulip Brasília Alvorada</h2>
+            
+            <div class="swiper-container hotel-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hotel 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Piscina Infinity</h3>
+                                    <p class="text-white">Desfrute da vista panorâmica do lago Paranoá enquanto relaxa em nossa piscina infinity.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Hotel 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Restaurante Gastronômico</h3>
+                                    <p class="text-white">Culinária internacional com toques regionais em ambiente sofisticado.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="relative h-96 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1582719471385-7ad48b5b0a25?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hotel 3" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Suítes Luxuosas</h3>
+                                    <p class="text-white">Conforto e elegância em nossos apartamentos com vista para o lago.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-xl mb-6">
+                    O Serenity Spa faz parte das instalações premium do Royal Tulip Brasília Alvorada, oferecendo aos nossos clientes a possibilidade de combinar tratamentos de spa com uma estadia luxuosa.
+                </p>
+                <button class="bg-verde-escuro hover-bg-dourado text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    Reservar Pacote Spa + Hospedagem
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-verde-escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-dourado rounded-full flex items-center justify-center mr-3">
+                            <span class="text-xl font-bold text-verde-escuro">S</span>
+                        </div>
+                        <h3 class="text-2xl font-bold">Serenity Spa</h3>
+                    </div>
+                    <p class="mb-4">
+                        O refúgio perfeito para relaxamento e rejuvenescimento no coração de Brasília.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-dourado text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-dourado text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-dourado text-xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-dourado">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-dourado transition duration-300">Home</a></li>
+                        <li><a href="#about" class="hover:text-dourado transition duration-300">Sobre Nós</a></li>
+                        <li><a href="#products" class="hover:text-dourado transition duration-300">Produtos</a></li>
+                        <li><a href="#therapists" class="hover:text-dourado transition duration-300">Terapeutas</a></li>
+                        <li><a href="#location" class="hover:text-dourado transition duration-300">Localização</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-dourado">Horário de Funcionamento</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between"><span>Segunda - Sexta:</span> <span>9h - 20h</span></li>
+                        <li class="flex justify-between"><span>Sábado:</span> <span>9h - 20h</span></li>
+                        <li class="flex justify-between"><span>Domingo:</span> <span>10h - 18h</span></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-dourado">Contato</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt text-dourado mr-3"></i> SHTN Trecho 1, Conj. 1B, Bloco C</li>
+                        <li class="flex items-center"><i class="fas fa-phone-alt text-dourado mr-3"></i> (61) 3424-7000</li>
+                        <li class="flex items-center"><i class="fas fa-envelope text-dourado mr-3"></i> contato@serenityspa.com.br</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-verde-claro border-opacity-30 mt-12 pt-8 text-center">
+                <p>&copy; 2023 Serenity Spa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
